@@ -64,6 +64,7 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-25 18:52:13.294
 !MESSAGE Boot LS startup time from start to initialized: 2102ms
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.jdt.core 4 4 2022-09-25 19:11:04.739
 !MESSAGE Failed to save JDT index: Index for /ReservasHotel
 !STACK 0
@@ -118,3 +119,19 @@ java.io.IOException: Failed to read index data from file:/C:/Users/Lucas%20Ortig
 	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:422)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 Caused by: java.lang.OutOfMemoryError: Java heap space
+=======
+!ENTRY org.eclipse.ui 2 2 2022-09-25 19:03:47.656
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-25 19:04:00.357
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-25 19:04:00.358
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@163626b0[org.springframework.tooling.boot.ls:1.38.0.202208110704(id=478)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-25 19:04:00.365
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-09-25 19:04:02.222
+!MESSAGE Boot LS startup time from start to initialized: 1855ms
+>>>>>>> branch0
