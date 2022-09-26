@@ -1,0 +1,45 @@
+package domain;
+
+
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+
+import java.util.Date;
+
+@Entity
+public class Habitacion {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nombreHabitacion;
+	private String identificadorHabitacion;
+	private String descripcion;
+	private Date fechaInicio;
+	private Date fechaFin;
+	
+	private Date creado;
+	private Date actualizado;
+	
+	
+	
+	public Habitacion() {
+		
+	}
+
+	@PrePersist
+	protected void enCreacion() {
+		this.creado = new Date();
+	}
+	
+	@PreUpdate
+	protected void en_Actualizacion() {
+		this.actualizado = new Date();
+	}
+
+}

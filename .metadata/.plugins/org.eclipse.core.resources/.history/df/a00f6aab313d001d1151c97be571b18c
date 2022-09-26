@@ -1,0 +1,17 @@
+package repositorios;
+import domain.Habitacion;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface HabitacionRepositorio extends CrudRepository<Habitacion, Long> {
+
+	@Override
+	default Iterable<Habitacion> findAllById(Iterable<Long> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
+}
