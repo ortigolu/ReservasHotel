@@ -1,4 +1,8 @@
 package domain;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 
@@ -10,13 +14,23 @@ public class Habitacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotNull(message = "El nombre es requisito")
 	private String nombreHabitacion;
+	@NotNull(message = "El identificador de la habitacion es requerido")
+	@Size(min=4, max=5, message = "Porfavor use de 4 a 5 caracteres")
+	@Column(updatable = false, unique = true)
 	private String identificadorHabitacion;
+	@NotNull(message = "La descripcion de la habitacion es requerido")
 	private String descripcion;
+	@JsonFormat(pattern = "yyyy-mm-dd")
 	private Date fechaInicio;
+	@JsonFormat(pattern = "yyyy-mm-dd")
 	private Date fechaFin;
-
+	
+	
+	@JsonFormat(pattern = "yyyy-mm-dd")
 	private Date creado;
+	@JsonFormat(pattern = "yyyy-mm-dd")
 	private Date actualizado;
 
 	public Habitacion() {
