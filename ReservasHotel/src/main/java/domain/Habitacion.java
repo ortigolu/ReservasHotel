@@ -1,13 +1,18 @@
 package domain;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import javax.persistence.*;
-
-import java.util.Date;
 
 @Entity
 public class Habitacion {
@@ -23,14 +28,15 @@ public class Habitacion {
 	private String identificadorHabitacion;
 	@NotNull(message = "La descripcion de la habitacion es requerido")
 	private String descripcion;
-	@JsonFormat(pattern = "yyyy-mm-dd")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	private Date fechaInicio;
-	@JsonFormat(pattern = "yyyy-mm-dd")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	private Date fechaFin;
 
-	@JsonFormat(pattern = "yyyy-mm-dd")
+	@JsonFormat(pattern = "dd-mm-yyyy")
+	@Column(updatable = false)
 	private Date creado;
-	@JsonFormat(pattern = "yyyy-mm-dd")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	private Date actualizado;
 
 	public Habitacion() {

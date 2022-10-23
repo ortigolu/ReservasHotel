@@ -11,6 +11,8 @@ class Dashboard extends Component {
   }
 
   render() {
+    const { habitaciones } = this.props.habitacion;
+
     return (
       <div>
         <div className="projects">
@@ -23,7 +25,9 @@ class Dashboard extends Component {
 
                 <br />
                 <hr />
-                <HabitacionItem />
+                {habitaciones.map((habitacion) => (
+                  <HabitacionItem key={habitacion.id} habitacion={habitacion} />
+                ))}
               </div>
             </div>
           </div>

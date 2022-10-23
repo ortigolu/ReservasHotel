@@ -9,11 +9,11 @@ class AddHabitacion extends Component {
     super();
 
     this.state = {
-      habitacionName: "",
-      habitacionIdentifier: "",
-      description: "",
-      start_date: "",
-      end_date: "",
+      nombreHabitacion: "",
+      identificadorHabitacion: "",
+      descripcion: "",
+      fechaInicio: "",
+      fechaFin: "",
       errors: {},
     };
 
@@ -35,11 +35,11 @@ class AddHabitacion extends Component {
   onSubmit(e) {
     e.preventDefault();
     const newHabitacion = {
-      habitacionName: this.state.habitacionName,
-      habitacionIdentifier: this.state.habitacionIdentifier,
-      description: this.state.description,
-      start_date: this.state.start_date,
-      end_date: this.state.end_date,
+      nombreHabitacion: this.state.nombreHabitacion,
+      identificadorHabitacion: this.state.identificadorHabitacion,
+      descripcion: this.state.descripcion,
+      fechaInicio: this.state.fechaInicio,
+      fechaFin: this.state.fechaFin,
     };
 
     this.props.createHabitacion(newHabitacion, this.props.history);
@@ -63,16 +63,16 @@ class AddHabitacion extends Component {
                     <input
                       type="text"
                       className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.habitacionName,
+                        "is-invalid": errors.nombreHabitacion,
                       })}
                       placeholder="Nombre De La Habitacion"
-                      name="habitacionName"
-                      value={this.state.habitacionName}
+                      name="nombreHabitacion"
+                      value={this.state.nombreHabitacion}
                       onChange={this.onChange}
                     />
-                    {errors.habitacionName && (
+                    {errors.nombreHabitacion && (
                       <div className="invalid-feedback">
-                        {errors.habitacionName}
+                        {errors.nombreHabitacion}
                       </div>
                     )}
 
@@ -82,16 +82,16 @@ class AddHabitacion extends Component {
                     <input
                       type="text"
                       className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.habitacionIdentifier,
+                        "is-invalid": errors.identificadorHabitacion,
                       })}
                       placeholder="ID de Habitacion"
-                      name="habitacionIdentifier"
-                      value={this.state.habitacionIdentifier}
+                      name="identificadorHabitacion"
+                      value={this.state.identificadorHabitacion}
                       onChange={this.onChange}
                     />
-                    {errors.habitacionIdentifier && (
+                    {errors.identificadorHabitacion && (
                       <div className="invalid-feedback">
-                        {errors.habitacionIdentifier}
+                        {errors.identificadorHabitacion}
                       </div>
                     )}
 
@@ -100,16 +100,16 @@ class AddHabitacion extends Component {
                   <div className="form-group">
                     <textarea
                       className={classnames("form-control form-control-lg", {
-                        "is-invalid": errors.description,
+                        "is-invalid": errors.descripcion,
                       })}
                       placeholder="Observaciones"
-                      name="description"
-                      value={this.state.description}
+                      name="descripcion"
+                      value={this.state.descripcion}
                       onChange={this.onChange}
                     />
-                    {errors.description && (
+                    {errors.descripcion && (
                       <div className="invalid-feedback">
-                        {errors.description}
+                        {errors.descripcion}
                       </div>
                     )}
 
@@ -121,8 +121,8 @@ class AddHabitacion extends Component {
                     <input
                       type="date"
                       className="form-control form-control-lg"
-                      name="start_date"
-                      value={this.state.start_date}
+                      name="fechaInicio"
+                      value={this.state.fechaInicio}
                       onChange={this.onChange}
                     />
 
@@ -134,8 +134,8 @@ class AddHabitacion extends Component {
                     <input
                       type="date"
                       className="form-control form-control-lg"
-                      name="end_date"
-                      value={this.state.end_date}
+                      name="fechaFin"
+                      value={this.state.fechaFin}
                       onChange={this.onChange}
                     />
 
