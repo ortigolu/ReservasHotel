@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createProject } from "../../actions/habitacionActions";
+import { createHabitacion } from "../../actions/habitacionActions";
+import classnames from "classnames";
 
 class AddHabitacion extends Component {
   constructor() {
@@ -13,10 +14,18 @@ class AddHabitacion extends Component {
       description: "",
       start_date: "",
       end_date: "",
+      errors: {},
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  //life cycle hooks
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   onChange(e) {
@@ -33,22 +42,15 @@ class AddHabitacion extends Component {
       end_date: this.state.end_date,
     };
 
-    this.props.createProject(newHabitacion, this.props.history);
+    this.props.createHabitacion(newHabitacion, this.props.history);
   }
 
   render() {
+    const { errors } = this.state;
+
     return (
       <div>
-        {
-          //check name attribute input fields
-          //create constructor
-          //set state
-          //set value on input fields
-          //create onChange function
-          //set onChange on each input field
-          //bind on constructor
-          //check state change in the react extension
-        }
+        {}
 
         <div className="project">
           <div className="container">
@@ -60,33 +62,57 @@ class AddHabitacion extends Component {
                   <div className="form-group">
                     <input
                       type="text"
-                      className="form-control form-control-lg "
+                      className={classnames("form-control form-control-lg", {
+                        "is-invalid": errors.habitacionName,
+                      })}
                       placeholder="Nombre De La Habitacion"
                       name="habitacionName"
                       value={this.state.habitacionName}
                       onChange={this.onChange}
                     />
+                    {errors.habitacionName && (
+                      <div className="invalid-feedback">
+                        {errors.habitacionName}
+                      </div>
+                    )}
+
                     <br></br>
                   </div>
                   <div className="form-group">
                     <input
                       type="text"
-                      className="form-control form-control-lg"
+                      className={classnames("form-control form-control-lg", {
+                        "is-invalid": errors.habitacionIdentifier,
+                      })}
                       placeholder="ID de Habitacion"
                       name="habitacionIdentifier"
                       value={this.state.habitacionIdentifier}
                       onChange={this.onChange}
                     />
+                    {errors.habitacionIdentifier && (
+                      <div className="invalid-feedback">
+                        {errors.habitacionIdentifier}
+                      </div>
+                    )}
+
                     <br></br>
                   </div>
                   <div className="form-group">
                     <textarea
-                      className="form-control form-control-lg"
+                      className={classnames("form-control form-control-lg", {
+                        "is-invalid": errors.description,
+                      })}
                       placeholder="Observaciones"
                       name="description"
                       value={this.state.description}
                       onChange={this.onChange}
                     />
+                    {errors.description && (
+                      <div className="invalid-feedback">
+                        {errors.description}
+                      </div>
+                    )}
+
                     <br></br>
                   </div>
                   <h6>Chech In </h6>
@@ -99,6 +125,7 @@ class AddHabitacion extends Component {
                       value={this.state.start_date}
                       onChange={this.onChange}
                     />
+
                     <br></br>
                   </div>
                   <h6>Check Out</h6>
@@ -111,6 +138,7 @@ class AddHabitacion extends Component {
                       value={this.state.end_date}
                       onChange={this.onChange}
                     />
+
                     <br></br>
                   </div>
 
@@ -129,6 +157,12 @@ class AddHabitacion extends Component {
 }
 
 AddHabitacion.propTypes = {
-  createProject: PropTypes.func.isRequired,
+  createHabitacion: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
 };
-export default connect(null, { createProject })(AddHabitacion);
+
+const mapStateToProps = (state) => ({
+  errors: state.errors,
+});
+
+export default connect(mapStateToProps, { createHabitacion })(AddHabitacion);

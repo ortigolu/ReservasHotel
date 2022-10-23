@@ -25,4 +25,28 @@ public class HabitacionServicio {
 		}
 
 	}
+
+	public Habitacion encontrarHabitacionPorIdentificador(String habitacionId) {
+		Habitacion habitacion = habitacionRepositorio.findByIdentificadorHabitacion(habitacionId.toUpperCase());
+		if (habitacion == null) {
+			throw new HabitacionExcepcionId("Habitacion Id " + habitacionId + " no existe");
+
+		}
+		return habitacion;
+	}
+
+	public Iterable<Habitacion> findAllHabitacion() {
+		return habitacionRepositorio.findAll();
+	}
+
+	public void borrarHabitacionPorIdentificador(String habitacionId) {
+		Habitacion habitacion = habitacionRepositorio.findByIdentificadorHabitacion(habitacionId.toUpperCase());
+		if (habitacion == null) {
+
+			throw new HabitacionExcepcionId(
+					"No se puede eliminar la habitacion con el ID " + habitacionId + ". Esta habitacion no existe");
+
+		}
+		habitacionRepositorio.delete(habitacion);
+	}
 }
