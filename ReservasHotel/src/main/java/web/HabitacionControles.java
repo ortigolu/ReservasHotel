@@ -30,7 +30,7 @@ public class HabitacionControles {
 	@Autowired
 	private MapValidacionErrorServicio mapValidacionErrorServicio;
 
-	@PostMapping
+	@PostMapping("")
 	public ResponseEntity<?> crearNuevaHabitacion(@Valid @RequestBody Habitacion habitacion, BindingResult result) {
 
 		ResponseEntity<?> errorMap = mapValidacionErrorServicio.MapValidationService(result);

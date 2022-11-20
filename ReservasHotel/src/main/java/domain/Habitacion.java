@@ -12,32 +12,30 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table
 public class Habitacion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotNull(message = "El nombre es requisito")
+	@NotBlank(message = "El nombre es requisito")
 	private String nombreHabitacion;
-	@NotNull(message = "El identificador de la habitacion es requerido")
+	@NotBlank(message = "El identificador de la habitacion es requerido")
 	@Size(min = 4, max = 5, message = "Porfavor use de 4 a 5 caracteres")
 	@Column(updatable = false, unique = true)
 	private String identificadorHabitacion;
-	@NotNull(message = "La descripcion de la habitacion es requerido")
+	@NotBlank(message = "La descripcion de la habitacion es requerido")
 	private String descripcion;
 	@JsonFormat(pattern = "dd-mm-yyyy")
 	private Date fechaInicio;
 	@JsonFormat(pattern = "dd-mm-yyyy")
 	private Date fechaFin;
-
 	@JsonFormat(pattern = "dd-mm-yyyy")
 	@Column(updatable = false)
 	private Date creado;
@@ -45,7 +43,7 @@ public class Habitacion {
 	private Date actualizado;
 
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "habitacion")
-	//
+	@JsonIgnore
 	private Backlog backlog;
 
 	public Backlog getBacklog() {

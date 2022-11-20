@@ -14,9 +14,15 @@ public class ExcepcionesPersonalizadas extends ResponseEntityExceptionHandler {
 	@ExceptionHandler
 	public final ResponseEntity<Object> handleHabitacionIdExcepcion(HabitacionExcepcionId ex, WebRequest request) {
 		HabitacionExcepcionRespuesta respuestaExcepcion = new HabitacionExcepcionRespuesta(ex.getMessage());
-
 		return new ResponseEntity(respuestaExcepcion, HttpStatus.BAD_REQUEST);
+	}
 
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleHabitacionNotFoundException(HabitacionNotFoundExcepcion ex,
+			WebRequest request) {
+		HabitacionNotFoundExceptionResponse exceptionResponse = new HabitacionNotFoundExceptionResponse(
+				ex.getMessage());
+		return new ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 
 }

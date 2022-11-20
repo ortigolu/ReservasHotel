@@ -18,8 +18,6 @@ public class HabitacionServicio {
 	private BacklogRepositorio backlogRepositorio;
 
 	public Habitacion guardarOactualizarHabitacion(Habitacion habitacion) {
-
-		// logica
 		try {
 			habitacion.setIdentificadorHabitacion(habitacion.getIdentificadorHabitacion().toUpperCase());
 
