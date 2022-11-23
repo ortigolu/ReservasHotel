@@ -1,5 +1,7 @@
 package web;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,32 +33,34 @@ public class HabitacionControles {
 	private MapValidacionErrorServicio mapValidacionErrorServicio;
 
 	@PostMapping("")
-	public ResponseEntity<?> crearNuevaHabitacion(@Valid @RequestBody Habitacion habitacion, BindingResult result) {
+	public ResponseEntity<?> crearNuevaHabitacion(@Valid @RequestBody Habitacion habitacion, BindingResult result,
+			Principal principal) {
 
 		ResponseEntity<?> errorMap = mapValidacionErrorServicio.MapValidationService(result);
 		if (errorMap != null)
 			return errorMap;
 
-		Habitacion habitacion1 = habitacionServicio.guardarOactualizarHabitacion(habitacion);
+		Habitacion habitacion1 = habitacionServicio.guardarOactualizarHabitacion(habitacion, principal.getName());
 		return new ResponseEntity<Habitacion>(habitacion, HttpStatus.CREATED);
 
 	}
 
 	@GetMapping("/{habitacionId}")
-	public ResponseEntity<?> getHabitacionId(@PathVariable String habitacionId) {
-		Habitacion habitacion = habitacionServicio.encontrarHabitacionPorIdentificador(habitacionId);
+	public ResponseEntity<?> getHabitacionId(@PathVariable String habitacionId, Principal principal) {
+		Habitacion habitacion = habitacionServicio.encontrarHabitacionPorIdentificador(habitacionId,
+				principal.getName());
 		return new ResponseEntity<Habitacion>(habitacion, HttpStatus.OK);
 
 	}
 
 	@GetMapping("/all")
-	public Iterable<Habitacion> getAllHabitaciones() {
-		return habitacionServicio.findAllHabitacion();
+	public Iterable<Habitacion> getAllHabitaciones(Principal principal) {
+		return habitacionServicio.findAllHabitacion(principal.getName());
 	}
 
 	@DeleteMapping("/{habitacionId}")
-	public ResponseEntity<?> eliminarHabitacion(@PathVariable String habitacionId) {
-		habitacionServicio.borrarHabitacionPorIdentificador(habitacionId);
+	public ResponseEntity<?> eliminarHabitacion(@PathVariable String habitacionId, Principal principal) {
+		habitacionServicio.deleteHabitacionByIdentifier(habitacionId, principal.getName());
 		return new ResponseEntity<String>("Habitacion con ID: " + habitacionId + "ha sido eliminado", HttpStatus.OK);
 
 	}

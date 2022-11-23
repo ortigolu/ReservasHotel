@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -45,6 +46,29 @@ public class Habitacion {
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "habitacion")
 	@JsonIgnore
 	private Backlog backlog;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+
+	@JsonIgnore
+	private Users users;
+
+	public Users getUsers() {
+		return users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+
+	public String getHabitacionLeader() {
+		return habitacionLeader;
+	}
+
+	public void setHabitacionLeader(String habitacionLeader) {
+		this.habitacionLeader = habitacionLeader;
+	}
+
+	private String habitacionLeader;
 
 	public Backlog getBacklog() {
 		return backlog;

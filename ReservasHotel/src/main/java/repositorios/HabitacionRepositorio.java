@@ -13,4 +13,6 @@ public interface HabitacionRepositorio extends CrudRepository<Habitacion, Long> 
 	@Override
 	Iterable<Habitacion> findAll();
 
+	Iterable<Habitacion> findAllByHabitacionLeader(String username);
+
 }

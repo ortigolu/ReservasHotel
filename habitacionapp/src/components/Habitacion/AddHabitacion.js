@@ -52,7 +52,7 @@ class AddHabitacion extends Component {
       <div>
         {}
 
-        <div className="project">
+        <div className="habitacion">
           <div className="container">
             <div className="row">
               <div className="col-md-8 m-auto">
