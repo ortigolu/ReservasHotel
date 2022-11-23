@@ -1,9 +1,9 @@
-package repositorios;
+package io.Sheraton.repositorios;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import domain.Habitacion;
+import io.Sheraton.domain.Habitacion;
 
 @Repository
 public interface HabitacionRepositorio extends CrudRepository<Habitacion, Long> {

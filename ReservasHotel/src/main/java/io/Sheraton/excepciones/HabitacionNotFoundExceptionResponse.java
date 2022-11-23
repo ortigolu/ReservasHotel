@@ -1,4 +1,4 @@
-package excepciones;
+package io.Sheraton.excepciones;
 
 public class HabitacionNotFoundExceptionResponse {
 	private String HabitacionNotFound;

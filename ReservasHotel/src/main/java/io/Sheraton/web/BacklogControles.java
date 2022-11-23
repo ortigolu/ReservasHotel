@@ -1,4 +1,4 @@
-package web;
+package io.Sheraton.web;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

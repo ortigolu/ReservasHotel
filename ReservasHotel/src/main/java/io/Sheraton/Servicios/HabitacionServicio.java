@@ -1,24 +1,19 @@
-package Servicios;
+package io.Sheraton.Servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import domain.Backlog;
-import domain.Habitacion;
-import domain.Users;
-import excepciones.HabitacionExcepcionId;
-import excepciones.HabitacionNotFoundExcepcion;
-import repositorios.BacklogRepositorio;
-import repositorios.HabitacionRepositorio;
-import repositorios.UsersRepositorio;
+import io.Sheraton.domain.Habitacion;
+import io.Sheraton.domain.Users;
+import io.Sheraton.excepciones.HabitacionExcepcionId;
+import io.Sheraton.excepciones.HabitacionNotFoundExcepcion;
+import io.Sheraton.repositorios.HabitacionRepositorio;
+import io.Sheraton.repositorios.UsersRepositorio;
 
 @Service
 public class HabitacionServicio {
 	@Autowired
 	private HabitacionRepositorio habitacionRepositorio;
-
-	@Autowired
-	private BacklogRepositorio backlogRepositorio;
 
 	@Autowired
 	private UsersRepositorio usersRepositorio;
@@ -40,20 +35,6 @@ public class HabitacionServicio {
 			habitacion.setUsers(users);
 			habitacion.setHabitacionLeader(users.getUsername());
 			habitacion.setIdentificadorHabitacion(habitacion.getIdentificadorHabitacion().toUpperCase());
-
-			if (habitacion.getId() == null) {
-				Backlog backlog = new Backlog();
-				habitacion.setBacklog(backlog);
-				backlog.setHabitacion(habitacion);
-				backlog.setIdentificadorHabitacion(habitacion.getIdentificadorHabitacion().toUpperCase());
-
-			}
-
-			if (habitacion.getId() != null) {
-				habitacion.setBacklog(backlogRepositorio
-						.findbyIdenttificadorHabitacion(habitacion.getIdentificadorHabitacion().toUpperCase()));
-
-			}
 
 			return habitacionRepositorio.save(habitacion);
 

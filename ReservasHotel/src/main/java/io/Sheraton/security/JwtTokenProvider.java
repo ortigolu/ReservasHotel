@@ -1,7 +1,7 @@
-package security;
+package io.Sheraton.security;
 
-import static security.SecurityConstants.EXPIRATION_TIME;
-import static security.SecurityConstants.SECRET;
+import static io.Sheraton.security.SecurityConstants.EXPIRATION_TIME;
+import static io.Sheraton.security.SecurityConstants.SECRET;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.Map;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import domain.Users;
+import io.Sheraton.domain.Users;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

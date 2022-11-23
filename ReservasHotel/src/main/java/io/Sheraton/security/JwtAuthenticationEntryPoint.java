@@ -1,4 +1,4 @@
-package security;
+package io.Sheraton.security;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 
-import excepciones.InvalidLoginResponse;
+import io.Sheraton.excepciones.InvalidLoginResponse;
 
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {

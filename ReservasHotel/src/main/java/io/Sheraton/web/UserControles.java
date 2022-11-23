@@ -1,6 +1,6 @@
-package web;
+package io.Sheraton.web;
 
-import static security.SecurityConstants.TOKEN_PREFIX;
+import static io.Sheraton.security.SecurityConstants.TOKEN_PREFIX;
 
 import javax.validation.Valid;
 
@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Servicios.MapValidationErrorService;
-import Servicios.UsersService;
-import domain.Users;
-import payload.JWTLoginSucessReponse;
-import payload.LoginRequest;
-import security.JwtTokenProvider;
-import validator.UserValidator;
+import io.Sheraton.Servicios.MapValidationErrorService;
+import io.Sheraton.Servicios.UsersService;
+import io.Sheraton.domain.Users;
+import io.Sheraton.payload.JWTLoginSucessReponse;
+import io.Sheraton.payload.LoginRequest;
+import io.Sheraton.security.JwtTokenProvider;
+import io.Sheraton.validator.UserValidator;
 
 @RestController
 @RequestMapping("/api/users")

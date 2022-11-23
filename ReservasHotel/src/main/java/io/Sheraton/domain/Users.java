@@ -1,4 +1,4 @@
-package domain;
+package io.Sheraton.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;

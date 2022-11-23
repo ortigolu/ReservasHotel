@@ -1,4 +1,4 @@
-package excepciones;
+package io.Sheraton.excepciones;
 
 public class InvalidLoginResponse {
 	private String username;

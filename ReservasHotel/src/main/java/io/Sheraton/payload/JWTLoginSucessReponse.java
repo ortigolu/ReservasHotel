@@ -1,4 +1,4 @@
-package payload;
+package io.Sheraton.payload;
 
 public class JWTLoginSucessReponse {
 	private boolean success;

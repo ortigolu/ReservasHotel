@@ -1,10 +1,10 @@
-package validator;
+package io.Sheraton.validator;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import domain.Users;
+import io.Sheraton.domain.Users;
 
 @Component
 public class UserValidator implements Validator {

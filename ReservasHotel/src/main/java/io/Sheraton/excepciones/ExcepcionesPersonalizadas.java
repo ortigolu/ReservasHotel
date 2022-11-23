@@ -1,4 +1,4 @@
-package excepciones;
+package io.Sheraton.excepciones;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

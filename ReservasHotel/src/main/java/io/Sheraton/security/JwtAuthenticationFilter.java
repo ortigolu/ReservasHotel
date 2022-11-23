@@ -1,7 +1,7 @@
-package security;
+package io.Sheraton.security;
 
-import static security.SecurityConstants.HEADER_STRING;
-import static security.SecurityConstants.TOKEN_PREFIX;
+import static io.Sheraton.security.SecurityConstants.HEADER_STRING;
+import static io.Sheraton.security.SecurityConstants.TOKEN_PREFIX;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -18,8 +18,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import Servicios.CustomUserDetailsService;
-import domain.Users;
+import io.Sheraton.Servicios.CustomUserDetailsService;
+import io.Sheraton.domain.Users;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	@Autowired

@@ -1,7 +1,7 @@
-package security;
+package io.Sheraton.security;
 
-import static security.SecurityConstants.H2_URL;
-import static security.SecurityConstants.SIGN_UP_URLS;
+import static io.Sheraton.security.SecurityConstants.H2_URL;
+import static io.Sheraton.security.SecurityConstants.SIGN_UP_URLS;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import Servicios.CustomUserDetailsService;;
+import io.Sheraton.Servicios.CustomUserDetailsService;;
 
 @Configuration
 @EnableWebSecurity

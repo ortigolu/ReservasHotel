@@ -1,4 +1,4 @@
-package payload;
+package io.Sheraton.payload;
 
 import javax.validation.constraints.NotBlank;
 

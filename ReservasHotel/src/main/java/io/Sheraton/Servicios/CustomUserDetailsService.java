@@ -1,4 +1,4 @@
-package Servicios;
+package io.Sheraton.Servicios;
 
 import javax.transaction.Transactional;
 
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import domain.Users;
-import repositorios.UsersRepositorio;
+import io.Sheraton.domain.Users;
+import io.Sheraton.repositorios.UsersRepositorio;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

@@ -1,12 +1,12 @@
-package Servicios;
+package io.Sheraton.Servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import domain.Users;
-import excepciones.UsernameAlreadyExistException;
-import repositorios.UsersRepositorio;
+import io.Sheraton.domain.Users;
+import io.Sheraton.excepciones.UsernameAlreadyExistException;
+import io.Sheraton.repositorios.UsersRepositorio;
 
 @Service
 public class UsersService {

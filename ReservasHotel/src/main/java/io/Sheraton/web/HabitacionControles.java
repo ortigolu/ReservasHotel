@@ -1,4 +1,4 @@
-package web;
+package io.Sheraton.web;
 
 import java.security.Principal;
 
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Servicios.HabitacionServicio;
-import Servicios.MapValidacionErrorServicio;
-import domain.Habitacion;
+import io.Sheraton.Servicios.HabitacionServicio;
+import io.Sheraton.Servicios.MapValidacionErrorServicio;
+import io.Sheraton.domain.Habitacion;
 
 @RestController
 @RequestMapping("/api/habitacion")
